@@ -1,5 +1,6 @@
 package com.cathyxz.stripe.example;
 
+import com.cathyxz.stripe.example.health.StripeExampleHealthCheck;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -24,6 +25,10 @@ public class StripeExampleApplication extends Application<StripeExampleConfigura
     public void run(final StripeExampleConfiguration configuration,
                     final Environment environment) {
         // TODO: implement application
+
+        final StripeExampleHealthCheck healthCheck =
+                new StripeExampleHealthCheck();
+        environment.healthChecks().register("example", healthCheck);
     }
 
 }

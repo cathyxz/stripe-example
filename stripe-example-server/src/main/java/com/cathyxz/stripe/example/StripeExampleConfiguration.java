@@ -7,4 +7,6 @@ import javax.validation.constraints.*;
 
 public class StripeExampleConfiguration extends Configuration {
     // TODO: implement service configuration
+
+
 }
