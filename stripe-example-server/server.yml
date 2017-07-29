@@ -1,0 +1,17 @@
+assets:
+  overrides:
+    /: ../build
+server:
+  rootPath: '/api/*'
+  type: simple
+  applicationContextPath: /
+  adminContextPath: /admin
+  connector:
+    type: http
+    port: 3000
+  requestLog:
+    appenders:
+      - type: file
+        currentLogFilename: var/log/stripe-example-requests.log
+        archive: false
+        timeZone: UTC
