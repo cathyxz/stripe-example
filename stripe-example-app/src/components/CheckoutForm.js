@@ -20,10 +20,18 @@ class CheckoutForm extends React.Component {
 
   render() {
     return (
+      <div className="pt-form-group checkout-form-container">
         <form onSubmit={this.handleSubmit}>
+          <h1>Checkout Form</h1>
+            <label className="pt-label pt-inline">
+              Cardholder Name 
+              <span className="pt-text-muted"> (required)</span>
+              <input className="pt-input" type="text" placeholder="First Name Last Name" dir="auto" />
+            </label>
             <CardSection />
-            <button>Confirm order</button>
-        </form>
+            <button className="pt-button" type="submit">Confirm order</button>
+          </form>
+        </div>
     );
   }
 }
