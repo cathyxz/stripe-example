@@ -11,10 +11,16 @@ public class StripeExampleConfiguration extends Configuration implements AssetsB
     @JsonProperty
     private final AssetsConfiguration assets = AssetsConfiguration.builder().build();
 
+    @JsonProperty("stripe")
+    private StripeConfiguration stripeConfiguration;
+
     @Override
     public AssetsConfiguration getAssetsConfiguration() {
         return assets;
     }
 
+    public StripeConfiguration getStripeConfiguration() {
+        return stripeConfiguration;
+    }
 
 }

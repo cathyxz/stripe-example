@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <StripeProvider apiKey="placeholder">
+        <StripeProvider apiKey="pk_test_zoFVIfYbAVs0N5e91nkSvNEB">
           <MyCheckoutForm/>
         </StripeProvider>
       </div>
