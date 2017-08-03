@@ -2,6 +2,7 @@ import React from 'react';
 import {injectStripe} from 'react-stripe-elements';
 
 import CardSection from './CardSection';
+import {stringToPhoneNumber} from '../utils/StringUtils'
 
 class CheckoutForm extends React.Component {
 
@@ -12,7 +13,8 @@ class CheckoutForm extends React.Component {
       address_line1: '',
       address_line2: '',
       address_state: '',
-      address_city: ''
+      address_city: '',
+      phoneNumber: ''
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -21,8 +23,12 @@ class CheckoutForm extends React.Component {
 
   handleInputChange(event) {
     const target = event.target;
-    const value = target.value;
+    let value = target.value;
     const name = target.name;
+
+    if (name === "phoneNumber") {
+      value = stringToPhoneNumber(target.value);
+    }
 
     this.setState({
       [name]: value
@@ -119,6 +125,19 @@ class CheckoutForm extends React.Component {
                 onChange={this.handleInputChange}
                 />
               </label>
+              <label className="pt-label">
+              Phone Number
+              <span className="pt-text-muted"> (required)</span>
+              <input 
+                className="pt-input" 
+                type="text" 
+                name="phoneNumber" 
+                placeholder="(123)456-7890" 
+                dir="auto" 
+                value={this.state.phoneNumber}
+                onChange={this.handleInputChange}
+                />
+            </label>
             <CardSection />
             <button className="pt-button" type="submit">Confirm order</button>
           </form>

@@ -10,8 +10,8 @@ class App extends Component {
     return (
       <div className="App">
         <Switch>
-          <Route path="/" component={Homepage} />
-          <Route path="/checkout">
+          <Route exact path="/" component={Homepage} />
+          <Route>
             <StripeProvider apiKey="pk_test_zoFVIfYbAVs0N5e91nkSvNEB">
               <MyCheckoutForm/>
             </StripeProvider>
